@@ -1,4 +1,4 @@
-# Auto_battler
+# Autobattler
 
 Python game project for a single player auto battler (with roguelite elements)
 
@@ -9,8 +9,8 @@ Python game project for a single player auto battler (with roguelite elements)
 
 ## Installation
 ```
-git clone https://github.com/Junkkah/auto_battler.git
-cd auto_battler
+git clone https://github.com/Janihaml/autobattler.git
+cd autobattler
 pip install .
 python main.py
 ```
