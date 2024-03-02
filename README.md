@@ -1,4 +1,4 @@
-# Auto_battler
+# Auto battler
 
 Python game project for a single-player auto battler (Version 1.1).
 This project boasts a built-in simulator designed for capturing automated gameplay data.
@@ -18,8 +18,8 @@ Please note: While the game may run on Python 3.11 or higher, using Python 3.9 o
 
 ## Installation
 ```
-git clone https://github.com/Junkkah/auto_battler.git
-cd auto_battler
+git clone https://github.com/Janihaml/autobattler.git
+cd autobattler
 pip install .
 python main.py
 ```
