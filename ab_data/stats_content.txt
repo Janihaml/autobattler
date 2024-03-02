@@ -1,0 +1,120 @@
+
+Table: Monsters
+- Attributes for different monsters.
+Columns:
+- id: Unique identifier for each monster.
+- name: Name of the monster.
+- size_scalar: Scalar for resizing image.
+- speed: Movement speed of the monster.
+- health: Health points (HP) of the monster.
+- max_health: Maximum HP of the monster.
+- damage: Amount of damage the monster can deal.
+- armor: Armor value, reducing incoming damage.
+- exp: Experience points awarded when the monster is defeated.
+- gold_min: Minimum amount of gold awarded when the monster is defeated.
+- gold_max: Maximum amount of gold awarded when the monster is defeated.
+
+Table: Classes
+- Attributes for different hero classes.
+Columns:
+- id: Unique identifier for each class.
+- type: Name of the class.
+- health: Health points (HP) of the class.
+- max_health: Maximum health points
+- damage: Amount of damage the class can deal.
+- speed: How fast the hero performs actions.
+- exp: Current experience points of character.
+- menace: Hero with most menace is most likely to be hit by enemies.
+- armor: Armor value, reducing incoming damage.
+- attack_type: What type of attacks the hero uses.
+- level_health: How much the heros maximum health is increased when gaining a level. 
+
+Table: Names
+Columns:
+- id: Unique identifier for each hero.
+- name: Name of the hero.
+- type: Class of the hero
+#should have foreign key reference, classes(id)
+
+Table: Spells
+Columns:
+- id: Unique identifier for each spell.
+- name: Name of the spell.
+- damage: How damage the spell deals to enemy / enemies.
+- speed: How fast the spell is cast.
+- type: What type of damage the spell deals.
+- area: Value 0 indicates single target spell, value 1 indicates area spell.
+
+Table: Adventures
+- Attributes for adventures
+Columns:
+- id: Unique identifier for each adventure.
+- name: Name of the adventure.
+- pos_x: Locations x-coordinate relative to screen width.
+- pos_y: Locations y-coordinate relative to screen height.
+- desc: Description of the location displayed in game.
+
+Table: Location_encounters
+- Monster encounter distribution.
+Columns:
+- id: Unique identifier for each monster encounter.
+- adventure_id: Foreign key reference to Adventures table.
+- tier: Indicates difficulty of the encounter. Tier 1 is easiest encounter.
+- probability: Probability of encounter occurring in the location.
+- monster1: Name of the monster in encounter.
+- monster2: Name of the monster in encounter. Value can be None
+- monster3: Name of the monster in encounter. Value can be None
+- monster4: Name of the monster in encounter. Value can be None
+
+Table: Dark_forest
+- Attributes for adventure dark_forest locations
+Columns:
+- id: Unique identifier for each location.
+- name: Name of the location.
+- type: Location type can be fight, shop or boss.
+- y_coord: Locations y-coordinate relative to screen height.
+- size_scalar: Scalar for resizing image.
+- tier: Difficulty of fights in location.
+- depth: Locations x-coordinate is depth * 0.07
+- desc: Description of the location displayed in game.
+- image_name: Used for image path.
+- parent1: Parent node of the location.
+- parent2: Parent node of the location.
+- child1: Child node of the location.
+- child2: Child node of the location.
+
+Table: Talents
+- Talent information and effects for all classes.
+Columns:
+- id: Unique identifier for each talent.
+- name: Name of the talent.
+- desc: Short description of the talent.
+- effect: Instruction for Hero method how the talent effects the hero.
+- type: Talent types are: stat, spell, special, song.
+- min_level: Minimum level required to learn the talent.
+- req1: Another talent hero needs to have in order to learn the talent.
+- req2: Another talent hero needs to have in order to learn the talent.
+
+Table: Talent_Class_Association 
+- Table used for matching heroes with talents they have access to.
+Columns:
+- talent_id: Foreign key reference to Talents table id.
+- class_id: Foreign key reference to Classes table id.
+
+Table: Experience
+- Table for experience values needed to gain levels.
+Columns:
+- id: Unique identifier for each hero level.
+- level: Hero Level.
+- exp: Experience points required to advance to hero level.
+
+Table: Weapons
+- Table for weapon items.
+Columns:
+- id: Unique identifier for each hero level.
+- name: Name of the weapon.
+- size_scalar: Scalar for resizing image.
+- speed_mod: Modified to hero's speed value when wielded.
+- base_damage: How much damage hero deals when wielded.
+- offset_x: Adjustment for weapon's distance from hero.
+- offset_y: Adjustment for weapon's distance from hero.
